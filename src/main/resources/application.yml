@@ -1,0 +1,42 @@
+spring:
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/itsmv4?useUnicode=true&characterEncoding=UTF-8&autoReconnect=true&zeroDateTimeBehavior=convertToNull&useSSL=false&allowMultiQueries=true&serverTimezone=Asia/Shanghai
+    username: root
+    password: combanc
+    initialSize: 10
+    minidle: 10
+    maxActive: 50
+    maxWait: 60000
+    timeBetweenEvictionRunsMillis: 60000
+    validationQuery: SELECT 1 FROM dual
+    filters: stat,wall,log4j
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: false
+    database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
+threadpool:
+  core-pool-size: 10
+  max-pool-size: 20
+  queue-capacity: 1000
+  keep-alive-seconds: 300
+
+logging:
+  file: log/ncm.log
+  level:
+    com.combanc: debug
+
+server:
+  session-timeout: 1000000
+  port: 8083
+  servlet:
+    context-path: /ncm
+
+backfile:
+  basePath: C:\Users\Admin\Desktop\
+
